@@ -1,0 +1,19 @@
+{
+  "name": "vue-basics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "connect": "^3.6.2",
+    "livereload": "^0.6.2",
+    "serve-static": "^1.12.3"
+  },
+  "dependencies": {
+    "vue": "^2.5.16"
+  }
+}

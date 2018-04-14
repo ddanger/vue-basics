@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"
+        content="ie=edge">
+  <script src="//localhost:35729/livereload.js?snipver=1"></script>
+
+  <title>Hello Vue</title>
+  <script src="../vue.js"></script>
+</head>
+
+<body>
+  <div id="app"
+       v-if="visible"
+       v-bind:title="hover">{{message}}</div>
+
+  <script>
+    Vue.config.productionTip = false
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!',
+        hover: 'Vue loaded this on ' + new Date(),
+        visible: true
+      }
+    })
+  </script>
+</body>
+
+</html>
