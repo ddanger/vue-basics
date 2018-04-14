@@ -1,5 +1,7 @@
 # Intro to Vue.js: The Frontend Framework for Everyone!
 
+## Repo: https://github.com/davedangerfield/vue-basics
+
 ## Who Am I?
 
 * David Dangerfield (message me on [linkedin.com/in/dangerfield](https://www.linkedin.com/in/dangerfield))<img alt="David Dangerfield" align="right" src="https://www.gravatar.com/avatar/3a586c7a2e29c0a63862edc139e620f4?s=100">
@@ -48,6 +50,8 @@ I attended these frontend masters workshops in person:
 * Sept. 2017: [Advanced Vue.js Features from the Ground Up](https://frontendmasters.com/courses/advanced-vue/) by Evan You
 
 I've also watched a lot of [this](https://www.udemy.com/vuejs-2-the-complete-guide/learn/v4/overview) excellent Udemy course
+
+## Repo: https://github.com/davedangerfield/vue-basics
 
 ## Agenda
 
