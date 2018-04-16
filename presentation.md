@@ -1,6 +1,6 @@
 # Intro to Vue.js: The Frontend Framework for Everyone!
 
-## Repo: https://github.com/davedangerfield/vue-basics
+## Repo: https://github.com/ddanger/vue-basics
 
 ## Who Am I?
 
@@ -51,7 +51,7 @@ I attended these frontend masters workshops in person:
 
 I've also watched a lot of [this](https://www.udemy.com/vuejs-2-the-complete-guide/learn/v4/overview) excellent Udemy course
 
-## Repo: https://github.com/davedangerfield/vue-basics
+## Repo: https://github.com/ddanger/vue-basics
 
 ## Agenda
 
