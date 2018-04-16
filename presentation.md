@@ -36,7 +36,8 @@
 
 ## Why Vue?
 
-It's kinda popular among developers. See [github most starred list](https://github.com/search?q=stars:%3E1&s=stars&type=Repositories).
+* It's kinda popular among developers. See [github most starred list](https://github.com/search?q=stars:%3E1&s=stars&type=Repositories).
+* It's good for everyone (basic --> advanced, small scale --> large scale)
 
 ## My Vue Background
 
