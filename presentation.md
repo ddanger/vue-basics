@@ -29,7 +29,8 @@
 
 ## What This Is
 
-* Ultra basic
+* A guided tour of your first couple hours using Vue
+* Ultra basic, minimal code examples
 * Slow and explained
 * Conversation: please ask questions
 
@@ -39,7 +40,7 @@
 
 * Entertainment (that's the other [Dangerfield](https://en.wikipedia.org/wiki/Rodney_Dangerfield))<img align="right" height="100" src="https://upload.wikimedia.org/wikipedia/commons/8/87/Rodney_Danagerfield_1972-1.jpg">
 * Slides
-* Overview of Vue features and supporting libraries
+* Overview of Vue features and ecosystem
 * Real developer workflow (i.e. no vue-cli, no vue components)
 
 <br><br><br><br>
