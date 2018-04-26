@@ -71,7 +71,7 @@ I've also watched a lot of [this](https://www.udemy.com/vuejs-2-the-complete-gui
 ## Agenda
 
 1.  Write 'Hello Vue' on [CodePen](https://codepen.io)
-1.  Go through the examples in this repo
+1.  Go through the examples in [this repo](https://github.com/ddanger/vue-basics/tree/master/client)
 1.  Show Vue.js [docs](https://vuejs.org/v2/guide/)
 1.  Mention [components](https://vuejs.org/v2/guide/components.html), [vue-cli](https://vuejs.org/v2/guide/installation.html#CLI), and [Nuxt](https://nuxtjs.org/guide/)
 
