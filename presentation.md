@@ -1,6 +1,6 @@
 # Intro to Vue.js: The Frontend Framework for Everyone!
 
-## Repo: https://github.com/ddanger/vue-basics
+### Repo: https://github.com/ddanger/vue-basics
 
 ## Who Am I?
 
@@ -10,22 +10,30 @@
 * Vue fan 🤩
 * Work for IBM, Rochester
 
+<br><br><br><br>
+
 ## Audience Poll
 
 * Software developers?
 * Software developers who have never used React, Angular or Vue?
 * Software developers who have used Vue?
 
+<br><br><br><br>
+
 ## Audience Q&A - Levelset Expectations
 
 * Why did you decide to attend this?
 * What are you hoping to get out of it?
+
+<br><br><br><br>
 
 ## What This Is
 
 * Ultra basic
 * Slow and explained
 * Conversation: please ask questions
+
+<br><br><br><br>
 
 ## What This Isn't
 
@@ -34,10 +42,14 @@
 * Overview of Vue and supporting libraries
 * Real developer workflow
 
+<br><br><br><br>
+
 ## Why Vue?
 
 * It's kinda popular among developers. See [github most starred list](https://github.com/search?q=stars:%3E1&s=stars&type=Repositories).
 * It's good for everyone (basic --> advanced, small scale --> large scale)
+
+<br><br><br><br>
 
 ## My Vue Background
 
@@ -52,7 +64,9 @@ I attended these frontend masters workshops in person:
 
 I've also watched a lot of [this](https://www.udemy.com/vuejs-2-the-complete-guide/learn/v4/overview) excellent Udemy course
 
-## Repo: https://github.com/ddanger/vue-basics
+<br><br><br><br>
+
+### Repo: https://github.com/ddanger/vue-basics
 
 ## Agenda
 
@@ -64,6 +78,8 @@ I've also watched a lot of [this](https://www.udemy.com/vuejs-2-the-complete-gui
 ## Not on the Agenda
 
 Why you might want to use Vue.js. You can google that and read [this](https://vuejs.org/v2/guide/comparison.html)
+
+<br><br><br><br>
 
 ## Resources
 
