@@ -2,11 +2,6 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible"
-        content="ie=edge">
   <script src="//localhost:35729/livereload.js?snipver=1"></script>
 
   <title>Hello Vue</title>
@@ -22,8 +17,6 @@
   </div>
 
   <script>
-    Vue.config.productionTip = false
-
     var app = new Vue({
       el: '#app',
       data: {
@@ -33,6 +26,8 @@
         colors: ['red', 'green', 'blue']
       }
     })
+
+    Vue.config.productionTip = false
   </script>
 </body>
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Reactivity</title>
+</head>
+
+<body>
+
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+
+  <ul>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+
+  <!--
+    var ul = document.querySelector('ul')
+
+    // Demonstrate HTML reactivity
+    ul.lastElementChild.remove()
+
+    var singleLiRule = document.styleSheets[0].cssRules[1]
+    
+    // Demonstrate CSS reactivity
+    singleLiRule.style.backgroundColor = 'cyan'
+  -->
+  <style>
+    li {
+      background-color: pink;
+    }
+
+    li:only-child {
+      background-color: green;
+    }
+
+  </style>
+</body>
+
+</html>

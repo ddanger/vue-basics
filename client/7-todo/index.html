@@ -2,11 +2,6 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible"
-        content="ie=edge">
   <script src="//localhost:35729/livereload.js?snipver=1"></script>
 
   <title>Vue Todo</title>
@@ -15,7 +10,7 @@
 
 <body>
   <div id="app">
-    <input placeholder="Enter a new todo..."
+    <input v-bind:placeholder="placeholder"
            autofocus
            v-model="newTodo"
            v-on:keyup.enter="addTodo">
@@ -27,33 +22,61 @@
     </ul>
   </div>
   <script>
-    Vue.config.productionTip = false
-
     new Vue({
       el: '#app', // Mount vue on element with id="app"
-
       data: {
         todos: ['learn Vue.js', 'make cool stuff'],
-        newTodo: ''
+        newTodo: '',
       },
-
-      methods: {
-
-        addTodo() {
-          var trimmedTodo = this.newTodo.trim()
-          if (trimmedTodo) { // ignore empty todo
-            this.todos.push(trimmedTodo)
+      computed: {
+        placeholder() {
+          if (!this.todos.length) {
+            return 'Enter a todo...'
           }
+          return 'Enter another todo...'
+        }
+      },
+      methods: {
+        addTodo() {
+          this.todos.push(this.newTodo)
           this.newTodo = ''
         },
-
         removeTodo(todoIndex) {
           this.todos.splice(todoIndex, 1)
         }
       }
     })
 
+    Vue.config.productionTip = false
   </script>
+
+  <style>
+    * {
+      font-family: sans-serif;
+      font-size: 25px;
+    }
+
+    body {
+      background-color: #43BB84;
+    }
+
+    input {
+      display: block;
+      padding: 10px;
+    }
+
+    input,
+    ul {
+      width: 33%;
+      margin: 30px auto;
+    }
+
+    li {
+      cursor: pointer;
+      color: #2c3e50;
+    }
+
+  </style>
 </body>
 
 </html>

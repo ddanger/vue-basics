@@ -2,11 +2,6 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible"
-        content="ie=edge">
   <script src="//localhost:35729/livereload.js?snipver=1"></script>
 
   <title>Hello Vue</title>
@@ -18,16 +13,16 @@
        v-if="visible"
        v-bind:title="hover">
     {{message}}
+
     <div v-for="color in colors"
          v-bind:style="{ backgroundColor: color }">
       {{color}}
     </div>
+
     <button v-on:click="sortColors">Sort</button>
   </div>
 
   <script>
-    Vue.config.productionTip = false
-
     var app = new Vue({
       el: '#app',
       data: {
@@ -42,6 +37,8 @@
         }
       }
     })
+
+    Vue.config.productionTip = false
   </script>
 </body>
 

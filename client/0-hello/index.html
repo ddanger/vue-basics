@@ -2,11 +2,6 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible"
-        content="ie=edge">
   <script src="//localhost:35729/livereload.js?snipver=1"></script>
 
   <title>Hello Vue</title>
@@ -14,17 +9,19 @@
 </head>
 
 <body>
-  <div id="app">{{message}}</div>
+  <div id="app">
+    {{message}}
+  </div>
 
   <script>
-    Vue.config.productionTip = false
-
     var app = new Vue({
       el: '#app',
       data: {
         message: 'Hello Vue!'
       }
     })
+
+    Vue.config.productionTip = false
   </script>
 </body>
 
