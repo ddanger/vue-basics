@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="//localhost:35729/livereload.js?snipver=1"></script>
+
+  <title>TO BUY</title>
+  <script src="../vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <h1 style="text-align: center; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 45px;">
+      TO BUY
+    </h1>
+
+    <input ref="input"
+           placeholder="add item..."
+           v-model="newItem"
+           @keyup.enter="addToList">
+
+    <section v-show="matchingItems.length">
+      <h3>Matches:</h3>
+      <ul>
+        <li v-for="match in matchingItems"
+            tabindex="0"
+            @keyup.enter="addMatchToList(match)"
+            @click="addMatchToList(match)">
+          {{match.label}}
+        </li>
+      </ul>
+    </section>
+
+    <section v-show="itemsToGet.length">
+      <h3>TO FIND ({{itemsToGet.length}}):</h3>
+      <ul>
+        <li v-for="item in itemsToGet">
+          <span class="app-icon"
+                tabindex="0"
+                title="delete"
+                @click="removeFromList(item)"
+                @keyup.enter="removeFromList(item)">❌</span>
+          <span class="app-icon"
+                tabindex="0"
+                title="add to cart"
+                @click="addToCart(item)"
+                @keyup.enter="addToCart(item)">🛒</span>
+          <span>
+            {{item.label}}
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <section v-show="numInCart">
+      <h3>IN CART ({{numInCart}}):</h3>
+      <ul>
+        <li v-for="(item, index) in itemsInCart">
+
+          <span class="app-icon"
+                tabindex="0"
+                title="remove"
+                @click="removeFromCart(item)"
+                @keyup.enter="removeFromCart(item)">🛒
+            <span style="position:relative; top: -5px; right: 30px; font-size: 14px;">🚫</span>
+          </span>
+
+          <span style="margin-left: -25px;">
+            {{item.label}}
+          </span>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          newItem: '',
+          groceries: groceryDB(),
+        }
+      },
+      created() {
+        this.groceries.forEach((item, i) => {
+          item.id = i
+        })
+      },
+      computed: {
+        itemsInCart() {
+          return this.groceries
+            .filter(item => item.inCart)
+        },
+        itemsToGet() {
+          return this.groceries
+            .filter(item => item.inList && !item.inCart)
+            .sort((a, b) => a.section < b.section)
+        },
+        matchingItems() {
+          return this.newItem &&
+            this.groceries
+              .filter(item => item.label.indexOf(this.newItem) > -1)
+        },
+        nextId() {
+          return this.groceries
+            .reduce((max, cur) => cur.id > max ? cur.id : max, 0) + 1
+        },
+        numInCart() {
+          return this.itemsInCart.length
+        },
+        sortedgroceries() {
+          return this.groceries.sort()
+        }
+      },
+      methods: {
+        addToList() {
+          this.groceries.push({
+            id: this.nextId,
+            label: this.newItem,
+            inList: true,
+            inCart: false,
+            qty: 1
+          })
+          this.resetInput()
+        },
+        addMatchToList(item) {
+          item.inList = true
+          this.resetInput()
+        },
+        addToCart(item) {
+          item.inCart = true
+        },
+        removeFromCart(item) {
+          item.inCart = false
+        },
+        resetInput() {
+          this.newItem = ''
+          this.$refs.input.focus()
+        },
+        removeFromList(item) {
+          item.inList = false
+          item.inCart = false
+        }
+      }
+    })
+
+    function groceryDB() {
+      return [
+        {
+          label: 'milk',
+          section: 'dairy',
+          inList: false,
+          inCart: false,
+          qty: 1
+        },
+        {
+          label: 'bread',
+          section: 'bakery',
+          inList: false,
+          inCart: false,
+          qty: 1
+        },
+        {
+          label: 'diapers',
+          section: 'baby',
+          inList: false,
+          inCart: false,
+          qty: 1
+        },
+        {
+          label: 'bananas',
+          section: 'produce',
+          inList: false,
+          inCart: false,
+          qty: 1
+        },
+        {
+          label: 'ice cream',
+          section: 'frozen',
+          inList: false,
+          inCart: false,
+          qty: 1
+        },
+        {
+          label: 'almond butter',
+          section: 'condiments',
+          inList: false,
+          inCart: false,
+          qty: 1
+        },
+        {
+          label: 'broccoli',
+          section: 'produce',
+          inList: false,
+          inCart: false,
+          qty: 1
+        },
+        {
+          label: 'avacados',
+          section: 'produce',
+          inList: false,
+          inCart: false,
+          qty: 1
+        },
+        {
+          label: 'apples',
+          section: 'produce',
+          inList: false,
+          inCart: false,
+          qty: 1
+        },
+        {
+          label: 'cilantro',
+          section: 'produce',
+          inList: false,
+          inCart: false,
+          qty: 1
+        }
+      ]
+    }
+  </script>
+
+  <style>
+    * {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 25px;
+    }
+
+    body {
+      background-color: #ffde03;
+      background-color: #ace7ff;
+      color: black;
+      color: #10104a;
+    }
+
+    input {
+      display: block;
+      padding: 10px;
+    }
+
+    section,
+    input {
+      width: 33%;
+      margin: 30px auto;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    .app-icon {
+      margin-left: 5px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+  </style>
+
+</body>
+
+</html>
