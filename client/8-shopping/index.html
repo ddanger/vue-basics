@@ -10,7 +10,7 @@
 
   <script src="//localhost:35729/livereload.js?snipver=1"></script>
 
-  <title>TO BUY</title>
+  <title>SHOPPING</title>
   <script src="../vue.js"></script>
 </head>
 
@@ -19,11 +19,11 @@
   <div id="app">
 
     <h1 class="app-brand">
-      TO BUY
+      SHOPPING
     </h1>
 
-    <input ref="input"
-           placeholder="add item..."
+    <input ref="itemInput"
+           placeholder="add to list..."
            v-model="newItem"
            @keyup.enter="addToList">
 
@@ -39,13 +39,13 @@
       </ul>
     </section>
 
-    <section v-show="itemsToGet.length">
-      <h3>TO FIND ({{itemsToGet.length}}):</h3>
+    <section v-show="itemsInList.length">
+      <h3>LIST ({{itemsInList.length}}):</h3>
       <ul>
-        <li v-for="item in itemsToGet">
+        <li v-for="item in itemsInList">
           <span class="app-icon"
                 tabindex="0"
-                title="delete"
+                title="remove from list"
                 @click="removeFromList(item)"
                 @keyup.enter="removeFromList(item)">❌</span>
           <span class="app-icon"
@@ -60,20 +60,20 @@
       </ul>
     </section>
 
-    <section v-show="numInCart">
-      <h3>IN CART ({{numInCart}}):</h3>
+    <section v-show="itemsInCart.length">
+      <h3>CART ({{itemsInCart.length}}):</h3>
       <ul>
         <li v-for="(item, index) in itemsInCart">
 
           <span class="app-icon"
                 tabindex="0"
-                title="remove"
+                title="remove from cart"
                 @click="removeFromCart(item)"
                 @keyup.enter="removeFromCart(item)">🛒
-            <span style="position:relative; top: -5px; right: 30px; font-size: 14px;">🚫</span>
+            <span class="app-not-icon">❌</span>
           </span>
 
-          <span style="margin-left: -25px;">
+          <span class="app-cart-label">
             {{item.label}}
           </span>
         </li>
@@ -83,148 +83,123 @@
   </div>
 
   <script>
+    // Item statuses
+    const IN_LIST = 'IN_LIST' // item is in shopping list
+    const IN_CART = 'IN_CART' // item is in shopping cart
+
     new Vue({
       el: '#app',
       data() {
         return {
           newItem: '',
-          groceries: groceryDB(),
+          items: frequentlyPurchasedItems(),
         }
       },
       created() {
-        this.groceries.forEach((item, i) => {
+        // generate an id for each item
+        this.items.forEach((item, i) => {
           item.id = i
         })
       },
       computed: {
-        itemsInCart() {
-          return this.groceries
-            .filter(item => item.inCart)
-        },
-        itemsToGet() {
-          return this.groceries
-            .filter(item => item.inList && !item.inCart)
-            .sort((a, b) => a.section < b.section)
-        },
         matchingItems() {
           return this.newItem &&
-            this.groceries
+            this.items
               .filter(item => item.label.indexOf(this.newItem) > -1)
         },
+        itemsInList() {
+          return this.items
+            .filter(item => item.status === IN_LIST)
+        },
+        itemsInCart() {
+          return this.items
+            .filter(item => item.status === IN_CART)
+        },
         nextId() {
-          return this.groceries
+          return this.items
             .reduce((max, cur) => cur.id > max ? cur.id : max, 0) + 1
-        },
-        numInCart() {
-          return this.itemsInCart.length
-        },
-        sortedgroceries() {
-          return this.groceries.sort()
         }
       },
       methods: {
         addToList() {
-          this.groceries.push({
+          this.items.push({
             id: this.nextId,
             label: this.newItem,
-            inList: true,
-            inCart: false,
-            qty: 1
+            status: IN_LIST
           })
           this.resetInput()
         },
         addMatchToList(item) {
-          item.inList = true
+          item.status = IN_LIST
           this.resetInput()
         },
         addToCart(item) {
-          item.inCart = true
+          item.status = IN_CART
+        },
+        removeFromList(item) {
+          item.status = ''
         },
         removeFromCart(item) {
-          item.inCart = false
+          item.status = IN_LIST // they can remove it from the list separately
         },
         resetInput() {
           this.newItem = ''
-          this.$refs.input.focus()
-        },
-        removeFromList(item) {
-          item.inList = false
-          item.inCart = false
+          this.$refs.itemInput.focus()
         }
       }
     })
 
-    function groceryDB() {
+    function frequentlyPurchasedItems() {
       return [
         {
           label: 'milk',
           section: 'dairy',
-          inList: false,
-          inCart: false,
-          qty: 1
+          status: ''
         },
         {
           label: 'bread',
           section: 'bakery',
-          inList: false,
-          inCart: false,
-          qty: 1
+          status: ''
         },
         {
           label: 'diapers',
           section: 'baby',
-          inList: false,
-          inCart: false,
-          qty: 1
+          status: ''
         },
         {
           label: 'bananas',
           section: 'produce',
-          inList: false,
-          inCart: false,
-          qty: 1
+          status: ''
         },
         {
           label: 'ice cream',
           section: 'frozen',
-          inList: false,
-          inCart: false,
-          qty: 1
+          status: ''
         },
         {
           label: 'almond butter',
           section: 'condiments',
-          inList: false,
-          inCart: false,
-          qty: 1
+          status: ''
         },
         {
           label: 'broccoli',
           section: 'produce',
-          inList: false,
-          inCart: false,
-          qty: 1
+          status: ''
         },
         {
           label: 'avacados',
           section: 'produce',
-          inList: false,
-          inCart: false,
-          qty: 1
+          status: ''
         },
         {
           label: 'apples',
           section: 'produce',
-          inList: false,
-          inCart: false,
-          qty: 1
+          status: ''
         },
         {
           label: 'cilantro',
           section: 'produce',
-          inList: false,
-          inCart: false,
-          qty: 1
+          status: ''
         }
       ]
     }
@@ -285,11 +260,19 @@
       font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
       font-size: 45px;
     }
-
     .app-icon {
       margin-left: 5px;
       margin-right: 5px;
       cursor: pointer;
+    }
+    .app-not-icon {
+      position:relative;
+      top: -5px;
+      right: 28px;
+      font-size: 14px;
+    }
+    .app-cart-label {
+      margin-left: -25px;
     }
 
   </style>
