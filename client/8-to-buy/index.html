@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible"
+        content="ie=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <script src="//localhost:35729/livereload.js?snipver=1"></script>
 
   <title>TO BUY</title>
@@ -244,11 +250,33 @@
 
     section,
     input {
-      width: 33%;
+      width: 90%;
       margin: 30px auto;
     }
 
+    @media (min-width: 768px) {
+      section,
+      input {
+        width: 66%;
+      }
+    }
+
+    @media (min-width: 992px) {
+      section,
+      input {
+        width: 50%;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      section,
+      input {
+        width: 33%;
+      }
+    }
+
     ul {
+      padding-left: 10px;
       list-style-type: none;
     }
 
