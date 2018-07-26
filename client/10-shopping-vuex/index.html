@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible"
+        content="ie=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script src="//localhost:35729/livereload.js?snipver=1"></script>
+
+  <title>SHOPPING</title>
+  <script src="../vue.js"></script>
+  <script src="../vuex.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <h1 class="app-brand">
+      SHOPPING
+    </h1>
+
+    <input placeholder="add to list..."
+           v-model="newItem"
+           @keyup.enter="$store.commit('addToList', newItem)">
+
+    <app-matches></app-matches>
+
+    <app-list></app-list>
+
+    <app-cart></app-cart>
+
+  </div>
+
+  <script type="module">
+    import './components/matches.js'
+    import './components/list.js'
+    import './components/cart.js'
+
+    import { store } from './store.js'
+
+    new Vue({
+      el: '#app',
+      store,
+      computed: {
+        ...Vuex.mapState(['items']),
+        ...Vuex.mapGetters([
+          'matchingItems',
+          'itemsInList',
+          'itemsInCart']),
+        newItem: {
+          get() {
+            return this.$store.state.newItem
+          },
+          set(value) {
+            this.$store.commit('setNewItem', value)
+          }
+        },
+      }
+    })
+
+  </script>
+
+  <style>
+    * {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 25px;
+    }
+
+    body {
+      background-color: #ffde03;
+      background-color: #ace7ff;
+      color: black;
+      color: #10104a;
+    }
+
+    input {
+      display: block;
+      padding: 10px;
+    }
+
+    section,
+    input {
+      width: 90%;
+      margin: 30px auto;
+    }
+
+    @media (min-width: 768px) {
+      section,
+      input {
+        width: 66%;
+      }
+    }
+
+    @media (min-width: 992px) {
+      section,
+      input {
+        width: 50%;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      section,
+      input {
+        width: 33%;
+      }
+    }
+
+    ul {
+      padding-left: 10px;
+      list-style-type: none;
+    }
+    
+    .app-brand {
+      text-align: center;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 45px;
+    }
+    .app-icon {
+      margin-left: 5px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .app-not-icon {
+      position:relative;
+      top: -5px;
+      right: 28px;
+      font-size: 14px;
+    }
+    .app-cart-label {
+      margin-left: -25px;
+    }
+
+  </style>
+
+</body>
+
+</html>
