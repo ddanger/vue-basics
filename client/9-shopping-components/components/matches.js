@@ -1,8 +1,7 @@
 Vue.component('app-matches', {
   props: ['items'],
   template: `
-    <section v-show="items.length">
-      <h3>Matches:</h3>
+    <section id="matches" v-show="items.length">
       <ul>
         <li v-for="match in items"
             tabindex="0"

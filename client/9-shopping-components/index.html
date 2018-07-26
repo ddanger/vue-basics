@@ -137,10 +137,25 @@
       margin: 30px auto;
     }
 
+    #matches {
+      position: absolute;
+      background-color: white;
+      top: 144px;
+      left: 5%;
+    }
+
+    #matches li:hover {
+      cursor: pointer;
+      background-color: #ace7ff;
+    }
+
     @media (min-width: 768px) {
       section,
       input {
         width: 66%;
+      }
+      #matches {
+        left: 17%
       }
     }
 
@@ -149,12 +164,18 @@
       input {
         width: 50%;
       }
+      #matches {
+        left: 25%
+      }
     }
 
     @media (min-width: 1200px) {
       section,
       input {
         width: 33%;
+      }
+      #matches {
+        left: 33.5%
       }
     }
 
