@@ -5,8 +5,10 @@ var server = connect()
 
 // Serve the HTML
 server.use(static(__dirname + '/client'))
-// Serve Vue from node_modules
+
+// Serve Vue & Vuex from node_modules
 server.use(static(__dirname + '/node_modules/vue/dist/'))
+server.use(static(__dirname + '/node_modules/vuex/dist/'))
 
 var port = 3080
 server.listen(port)
