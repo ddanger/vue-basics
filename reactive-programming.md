@@ -5,6 +5,7 @@
 > in which changes in an underlying _*model*_
 >
 > are automatically reflected in an associated _*view*_
+<p>(Adapted from <a href="https://en.wikipedia.org/wiki/Reactive_programming">Wikipedia</a>)</p>
 
 <br><br><br><br>
 
