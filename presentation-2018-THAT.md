@@ -2,6 +2,8 @@
 
 ### Repo: https://github.com/ddanger/vue-basics
 
+<br><br><br><br>
+
 ## Who Am I?
 
 - David Dangerfield ([@ddanger](https://twitter.com/ddanger))<img alt="David Dangerfield" align="right" src="https://www.gravatar.com/avatar/3a586c7a2e29c0a63862edc139e620f4?s=100">
