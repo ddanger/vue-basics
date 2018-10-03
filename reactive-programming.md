@@ -20,11 +20,11 @@
 ## Non-Example: JavaScript
 
 ```javascript
-var apples = 2
-var oranges = 3
-var total = apples + oranges
+var price = 2.50
+var qty = 2
+var total = price * qty
 console.log(total) // 5
 
-apples = 7
+qty = 3
 console.log(total) // guess...
 ```
