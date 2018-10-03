@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="//localhost:35729/livereload.js?snipver=1"></script>
+
+  <title>Hello Vue</title>
+  <script src="../vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>
+      Price<input type="number" v-model="price">
+    </p>
+    <p>
+      Qty<input type="number" v-model="qty">
+    </p>
+    <p>
+      Tax<input v-model="tax" readonly>
+    </p>
+    <p>
+      Total<input type="number" v-model="total">
+    </p>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        price: 0,
+        qty: 0
+      },
+      computed: {
+        subtotal() {
+          return this.price * this.qty;
+        },
+        total() {
+          return this.subtotal + Number(this.tax);
+        },
+        tax() {
+          return (this.subtotal * 0.06875).toFixed(2);
+        }
+      }
+    })
+
+    Vue.config.productionTip = false
+  </script>
+</body>
+
+</html>
